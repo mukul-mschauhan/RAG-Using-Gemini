@@ -51,9 +51,8 @@ Make sure you have enabled Generative AI Studio and generated an API key for Gem
 
 🟢 Run the App - streamlit run app.py
 
-⚡ Example Usage
+### ⚡ Example Usage
 1. Upload a PDF document.
-
 2. Ask questions like:
     - "Summarize the key points of this document."
     - "What does the agreement say about payment terms?"
@@ -78,7 +77,7 @@ Make sure you have enabled Generative AI Studio and generated an API key for Gem
 - Enhanced metadata-based filtering.
 
 📬 Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+- Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 🏆 Credits
 - LangChain[https://github.com/langchain-ai/langchain]
