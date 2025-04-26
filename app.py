@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 import google.generativeai as genai
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
 from dotenv import load_dotenv
 from langchain.schema import Document
@@ -13,9 +13,6 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv('GOOGLE_API_KEY')
 genai.configure(api_key=GEMINI_API_KEY)
 gemini_model = genai.GenerativeModel('gemini-1.5-pro-latest')
-
-# ✅ Disable Streamlit hot reload to prevent PyTorch class errors
-st.set_option('server.runOnSave', False)
 
 # ✅ Cache the embedding model loading to avoid reloading on every run
 @st.cache_resource(show_spinner="Loading embedding model...")
