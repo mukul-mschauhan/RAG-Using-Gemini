@@ -15,11 +15,21 @@ warnings.filterwarnings("ignore")
 load_dotenv()
 GEMINI_API_KEY = os.getenv('GOOGLE_API_KEY')
 
+# ✅ Disable Streamlit hot reload to prevent PyTorch class errors
+st.set_option('server.runOnSave', False)
+
 # ✅ Configure Gemini & Embedding Model
 genai.configure(api_key=GEMINI_API_KEY)
 gemini_model = genai.GenerativeModel('gemini-1.5-pro-latest')
 sentence_model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 embedding_model = HuggingFaceEmbeddings(model=sentence_model)
+
+# ✅ Cache the embedding model loading to avoid reloading on every run
+@st.cache_resource(show_spinner="Loading embedding model...")
+def load_embedding_model():
+    return HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+
+embedding_model = load_embedding_model()
 
 # ✅ Streamlit UI
 st.header("📘📋🎯RAG Assistant: :blue[HF Embeddings + Gemini LLM]")
