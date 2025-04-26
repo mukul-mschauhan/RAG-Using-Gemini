@@ -18,7 +18,8 @@ GEMINI_API_KEY = os.getenv('GOOGLE_API_KEY')
 # ✅ Configure Gemini & Embedding Model
 genai.configure(api_key=GEMINI_API_KEY)
 gemini_model = genai.GenerativeModel('gemini-1.5-pro-latest')
-embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", device = "cpu")
+sentence_model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
+embedding_model = HuggingFaceEmbeddings(model=sentence_model)
 
 # ✅ Streamlit UI
 st.header("📘📋🎯RAG Assistant: :blue[HF Embeddings + Gemini LLM]")
