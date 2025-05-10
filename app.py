@@ -6,7 +6,8 @@ from langchain.text_splitter import CharacterTextSplitter
 from dotenv import load_dotenv
 from langchain.schema import Document
 from PyPDF2 import PdfReader
-from langchain_community.embeddings import HuggingFaceEmbeddings
+#from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # ✅ Load API Key
 load_dotenv()
