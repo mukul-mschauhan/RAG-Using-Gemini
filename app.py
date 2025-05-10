@@ -13,7 +13,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 load_dotenv()
 GEMINI_API_KEY = os.getenv('GOOGLE_API_KEY')
 genai.configure(api_key=GEMINI_API_KEY)
-gemini_model = genai.GenerativeModel('gemini-1.5-pro-latest')
+gemini_model = genai.GenerativeModel('gemini-2.0-pro')
 
 # ✅ Cache the embedding model loading to avoid reloading on every run
 @st.cache_resource(show_spinner="Loading embedding model...")
